@@ -23,16 +23,7 @@ cd models
 sudo bash -c "echo -e '
 # encoding: utf-8
 
-##
-# Backup Generated: $PROJECT_DB
-# Once configured, you can run the backup with the following command:
-#
-# $ backup perform -t $PROJECT_DB [-c <path_to_configuration_file>]
-#
-# For more information about Backup's components, see the documentation at:
-# http://meskyanichi.github.io/backup
-#
-Model.new(:$PROJECT_DB, \'Dump $PROJECT_DB database\') do
+Model.new(:$PROJECT_DB, \"Dump $PROJECT_DB database\") do
 
   ##
   # MySQL [Database]
@@ -55,6 +46,8 @@ Model.new(:$PROJECT_DB, \'Dump $PROJECT_DB database\') do
     local.path       = \"/var/www/$PROJECT/backup/db\"
     local.keep       = 7
   end
+
+  compress_with Gzip
 
 end
 ' > $PROJECT_DB.rb"
