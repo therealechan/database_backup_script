@@ -7,8 +7,7 @@ read -p "Enter mysql password: " MYSQL_PASSWORD
 
 gem install backup
 
-sudo mkdir -p /var/www/$PROJECT/backup && chmod 775 $_
-sudo mkdir -p /var/www/$PROJECT/backup/db && chmod 775 $_
+mkdir -p /var/www/$PROJECT/backup /var/www/$PROJECT/backup/db
 
 cd ~
 
@@ -29,7 +28,6 @@ Model.new(:$PROJECT_DB, \"Dump $PROJECT_DB database\") do
   # MySQL [Database]
   #
   database MySQL do |db|
-    # To dump all databases, set `db.name = :all` (or leave blank)
     db.name               = \"$PROJECT_DB\"
     db.username           = \"$MYSQL_USER\"
     db.password           = \"$MYSQL_PASSWORD\"
@@ -56,12 +54,14 @@ backup perform -t $PROJECT_DB
 
 gem install whenever
 
-sudo mkdir -p /var/www/$PROJECT/config && cd $_ && chmod 775 $_
+cd /var/www/$PROJECT
+
+mkdir config
 
 wheneverize .
 
-sudo bash -c "echo -e'
-set :output, \"~/Backup/$PROJECT_whenever.log\"
+sudo bash -c "echo -e '
+set :output, \"~/Backup/${PROJECT}"_whenever.log"\"
 every :day do
   command \"cd ~/Backup && backup perform -t $PROJECT_DB\"
 end
