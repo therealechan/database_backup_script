@@ -52,6 +52,7 @@ end
 
 backup perform -t $PROJECT_DB
 
+# Use whenever to automatic backup database
 gem install whenever
 
 cd /var/www/$PROJECT
@@ -62,6 +63,8 @@ wheneverize .
 
 sudo bash -c "echo -e '
 set :output, \"~/Backup/${PROJECT}"_whenever.log"\"
+# Here to set up auto backup database once a day
+# More info please see https://github.com/javan/whenever#example-schedulerb-file
 every :day do
   command \"cd ~/Backup && backup perform -t $PROJECT_DB\"
 end
