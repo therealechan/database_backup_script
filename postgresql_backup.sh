@@ -2,8 +2,8 @@
 
 read -p "Enter your project folder name: " PROJECT
 read -p "Enter your project database name: " PROJECT_DB
-read -p "Enter mysql username: " MYSQL_USER
-read -p "Enter mysql password: " MYSQL_PASSWORD
+read -p "Enter postgresql username: " PSQL_USER
+read -p "Enter postgresql password: " PSQL_PASSWORD
 
 gem install backup
 
@@ -30,8 +30,8 @@ Model.new(:$PROJECT_DB, \"Dump $PROJECT_DB database\") do
   database PostgreSQL do |db|
     # To dump all databases, set `db.name = :all` (or leave blank)
     db.name               = \"$PROJECT_DB\"
-    db.username           = \"$MYSQL_USER\"
-    db.password           = \"$MYSQL_PASSWORD\"
+    db.username           = \"$PSQL_USER\"
+    db.password           = \"$PSQL_PASSWORD\"
     db.host               = \"localhost\"
     db.port               = 5432
     # db.socket             = "/tmp/pg.sock"
