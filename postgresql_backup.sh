@@ -38,7 +38,7 @@ Model.new(:$PROJECT_DB, \"Dump $PROJECT_DB database\") do
     # When dumping all databases, `skip_tables` and `only_tables` are ignored.
     # db.skip_tables        = ["skip", "these", "tables"]
     # db.only_tables        = ["only", "these", "tables"]
-    db.additional_options = ["-xc", "-E=utf8"]
+    # db.additional_options = ["-xc", "-E=utf8"]
   end
 
   ##
