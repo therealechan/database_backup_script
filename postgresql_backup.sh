@@ -15,7 +15,7 @@ mkdir Backup
 
 cd Backup
 
-backup generate:model -t $PROJECT_DB --databases=mysql --compressor=gzip --storages=local
+backup generate:model -t $PROJECT_DB --databases=postgresql --compressor=gzip --storages=local
 
 cd models
 
