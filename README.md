@@ -6,11 +6,14 @@ sh -c "`curl -fsSL https://raw.githubusercontent.com/chankaward/database_backup_
 
 # PostgreSQL
 sh -c "`curl -fsSL https://raw.githubusercontent.com/chankaward/database_backup_script/master/postgresql_backup.sh`"
+
+# SQLite
+sh -c "`curl -fsSL https://raw.githubusercontent.com/therealechan/database_backup_script/master/sqlite_backup.sh`"
 ```
 
 ## Todo
-* MongoDB
-* SQLite
+- [ ] MongoDB
+- [x] SQLite
 
 ## License
 Copyright (c) Edward Chan.
